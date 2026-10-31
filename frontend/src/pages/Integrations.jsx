@@ -255,3 +255,4 @@ export const Integrations = () => {
     </div>
   );
 };
+

@@ -61,3 +61,4 @@ def test_pipeline_crud_and_trigger(client):
     assert runs_resp.status_code == 200
     assert len(runs_resp.json()) == 1
     assert runs_resp.json()[0]["id"] == run_data["id"]
+

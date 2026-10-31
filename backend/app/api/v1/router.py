@@ -6,6 +6,7 @@ from app.api.v1.dashboard import router as dashboard_router
 from app.api.v1.health import router as health_router
 from app.api.v1.github import router as github_router
 from app.api.v1.pipelines import router as pipelines_router
+from app.api.v1.docker import router as docker_router
 
 api_router = APIRouter()
 
@@ -15,4 +16,5 @@ api_router.include_router(projects_router, prefix="/projects", tags=["Projects"]
 api_router.include_router(dashboard_router, prefix="/dashboard", tags=["Dashboard"])
 api_router.include_router(github_router, prefix="/github", tags=["GitHub"])
 api_router.include_router(pipelines_router, prefix="/pipelines", tags=["Pipelines"])
+api_router.include_router(docker_router, prefix="/docker", tags=["Docker"])
 

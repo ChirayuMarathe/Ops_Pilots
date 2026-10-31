@@ -17,6 +17,16 @@ from app.schemas.pipeline import (
     PipelineRunResponse,
 )
 
+from app.schemas.docker import (
+    DockerStatusResponse,
+    ContainerItem,
+    ContainerDetail,
+    ContainerStats,
+    ContainerLogs,
+    ContainerActionRequest,
+    DockerImageItem,
+)
+
 __all__ = [
     "Token",
     "TokenPayload",
@@ -42,5 +52,12 @@ __all__ = [
     "PipelineResponse",
     "PipelineTriggerRequest",
     "PipelineRunResponse",
+    "DockerStatusResponse",
+    "ContainerItem",
+    "ContainerDetail",
+    "ContainerStats",
+    "ContainerLogs",
+    "ContainerActionRequest",
+    "DockerImageItem",
 ]
 

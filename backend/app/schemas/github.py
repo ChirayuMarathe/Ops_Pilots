@@ -39,3 +39,4 @@ class GitHubWorkflowItem(BaseModel):
     path: str
     state: str
     html_url: Optional[str] = None
+

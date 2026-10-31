@@ -47,3 +47,4 @@ def test_webhook_invalid_signature_rejected(client):
     response = client.post("/api/v1/github/webhooks", content=body, headers=headers)
     assert response.status_code == 401
     assert "Invalid webhook signature" in response.json()["detail"]
+

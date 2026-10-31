@@ -256,3 +256,4 @@ async def sync_pipeline_run(
                 db.refresh(run)
 
     return run
+

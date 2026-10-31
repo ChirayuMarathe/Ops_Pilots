@@ -65,3 +65,4 @@ class PipelineRunResponse(BaseModel):
     duration_seconds: Optional[int] = None
 
     model_config = ConfigDict(from_attributes=True)
+

@@ -262,3 +262,4 @@ class GitHubService:
         ).hexdigest()
 
         return hmac.compare_digest(computed_sig, expected_sig)
+

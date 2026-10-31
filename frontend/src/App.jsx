@@ -9,6 +9,7 @@ import { Projects } from './pages/Projects';
 import { Pipelines } from './pages/Pipelines';
 import { PipelineDetail } from './pages/PipelineDetail';
 import { Integrations } from './pages/Integrations';
+import { Containers } from './pages/Containers';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -69,16 +70,7 @@ export default function App() {
             <Route path="integrations" element={<Integrations />} />
 
             {/* Phase 3: Docker Containers */}
-            <Route
-              path="infrastructure/containers"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 3 Deliverable"
-                  title="Docker Container Management"
-                  description="Live container inspect, image tags, CPU/Memory telemetry, restart tracking, and controlled container logs."
-                />
-              }
-            />
+            <Route path="infrastructure/containers" element={<Containers />} />
 
             {/* Phase 4: Kubernetes */}
             <Route
