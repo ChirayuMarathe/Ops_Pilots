@@ -34,8 +34,8 @@ export const Sidebar = () => {
     {
       title: 'CI/CD Pipelines',
       items: [
-        { label: 'Pipelines', to: '/pipelines', icon: PlayCircle, badge: 'Phase 2' },
-        { label: 'Execution History', to: '/pipelines/history', icon: History, badge: 'Phase 2' },
+        { label: 'Pipelines', to: '/pipelines', icon: PlayCircle },
+        { label: 'Integrations', to: '/integrations', icon: Settings },
       ],
     },
     {
@@ -103,8 +103,8 @@ export const Sidebar = () => {
 
       <div className="pt-4 border-t border-border/60">
         <div className="px-3 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
-          <div className="font-semibold text-slate-300">Phase 1: Active</div>
-          <div className="text-[11px] text-slate-400 mt-0.5">Auth, Projects, Postgres & Docker Compose</div>
+          <div className="font-semibold text-slate-300">Phase 2: Active</div>
+          <div className="text-[11px] text-slate-400 mt-0.5">GitHub Integration & CI/CD Pipelines</div>
         </div>
       </div>
     </aside>

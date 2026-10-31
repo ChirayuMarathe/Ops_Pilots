@@ -31,6 +31,7 @@ class User(Base):
 
     projects = relationship("Project", back_populates="owner", cascade="all, delete-orphan")
     audit_logs = relationship("AuditLog", back_populates="user")
+    integrations = relationship("Integration", back_populates="user", cascade="all, delete-orphan")
 
 
 class Team(Base):
@@ -67,7 +68,8 @@ class Pipeline(Base):
     id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
     project_id = Column(String(36), ForeignKey("projects.id", ondelete="CASCADE"), nullable=False)
     name = Column(String(100), nullable=False)
-    workflow_file = Column(String(255), nullable=False)  # e.g., .github/workflows/deploy.yml
+    workflow_file = Column(String(255), nullable=False)  # e.g., .github/workflows/deploy.yml or deploy.yml
+    workflow_id = Column(String(100), nullable=True)     # GitHub workflow ID
     trigger_type = Column(String(50), default="push")   # push, pull_request, manual
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
@@ -81,18 +83,40 @@ class PipelineRun(Base):
 
     id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
     pipeline_id = Column(String(36), ForeignKey("pipelines.id", ondelete="CASCADE"), nullable=False)
+    github_run_id = Column(String(100), index=True, nullable=True)
     run_number = Column(Integer, nullable=False)
     status = Column(String(50), default="queued")  # queued, in_progress, success, failure, cancelled
+    conclusion = Column(String(50), nullable=True)  # success, failure, cancelled, timed_out
     commit_hash = Column(String(40), nullable=True)
     commit_message = Column(Text, nullable=True)
     branch = Column(String(100), nullable=True)
     triggered_by = Column(String(100), nullable=True)
+    html_url = Column(String(500), nullable=True)
+    stages_data = Column(JSON, nullable=True)  # [{name, status, conclusion, started_at, completed_at, steps: [...]}]
     started_at = Column(DateTime(timezone=True), nullable=True)
     completed_at = Column(DateTime(timezone=True), nullable=True)
     duration_seconds = Column(Integer, nullable=True)
     logs = Column(Text, nullable=True)
 
     pipeline = relationship("Pipeline", back_populates="runs")
+
+
+class Integration(Base):
+    __tablename__ = "integrations"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    provider = Column(String(50), default="github", nullable=False)  # github, aws, docker
+    account_login = Column(String(100), nullable=True)
+    account_avatar_url = Column(String(500), nullable=True)
+    access_token = Column(String(500), nullable=False)
+    webhook_secret = Column(String(255), nullable=True)
+    scopes = Column(String(255), nullable=True)
+    status = Column(String(50), default="connected", nullable=False)  # connected, revoked, expired
+    created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now, nullable=False)
+
+    user = relationship("User", back_populates="integrations")
 
 
 class Cluster(Base):
