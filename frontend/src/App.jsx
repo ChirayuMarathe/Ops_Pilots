@@ -10,6 +10,7 @@ import { Pipelines } from './pages/Pipelines';
 import { PipelineDetail } from './pages/PipelineDetail';
 import { Integrations } from './pages/Integrations';
 import { Containers } from './pages/Containers';
+import { Kubernetes } from './pages/Kubernetes';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -73,16 +74,7 @@ export default function App() {
             <Route path="infrastructure/containers" element={<Containers />} />
 
             {/* Phase 4: Kubernetes */}
-            <Route
-              path="infrastructure/kubernetes"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 4 Deliverable"
-                  title="Kubernetes Cluster & Workload Management"
-                  description="Local kind cluster inspection, Pod status, Deployment configuration, Replica scaling, and controlled rollbacks."
-                />
-              }
-            />
+            <Route path="infrastructure/kubernetes" element={<Kubernetes />} />
 
             {/* Phase 6: Terraform */}
             <Route

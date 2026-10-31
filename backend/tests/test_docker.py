@@ -81,3 +81,4 @@ def test_docker_container_action_audit(client):
         data = response.json()
         assert data["action"] == "restart"
         assert data["name"] == "opspilot-backend"
+

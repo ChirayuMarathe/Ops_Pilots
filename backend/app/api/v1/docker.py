@@ -82,3 +82,4 @@ def execute_container_action(
 @router.get("/images", response_model=List[DockerImageItem])
 def list_docker_images(current_user: User = Depends(get_current_user)):
     return DockerService.list_images()
+

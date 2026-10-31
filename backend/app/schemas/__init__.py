@@ -26,6 +26,17 @@ from app.schemas.docker import (
     ContainerActionRequest,
     DockerImageItem,
 )
+from app.schemas.kubernetes import (
+    NodeItem,
+    ClusterInfoResponse,
+    NamespaceItem,
+    PodItem,
+    DeploymentItem,
+    ScaleDeploymentRequest,
+    ServiceItem,
+    K8sEventItem,
+    PodLogsResponse,
+)
 
 __all__ = [
     "Token",
@@ -59,5 +70,14 @@ __all__ = [
     "ContainerLogs",
     "ContainerActionRequest",
     "DockerImageItem",
+    "NodeItem",
+    "ClusterInfoResponse",
+    "NamespaceItem",
+    "PodItem",
+    "DeploymentItem",
+    "ScaleDeploymentRequest",
+    "ServiceItem",
+    "K8sEventItem",
+    "PodLogsResponse",
 ]
 
