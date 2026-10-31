@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: opspilot-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-opspilot}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-opspilot_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-opspilot_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opspilot -d opspilot_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - opspilot-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: opspilot-backend
+    restart: always
+    environment:
+      ENVIRONMENT: development
+      DATABASE_URL: postgresql://opspilot:opspilot_secret@db:5432/opspilot_db
+      SECRET_KEY: ${SECRET_KEY:-opspilot-super-secure-production-ready-jwt-secret-key-2026}
+      CORS_ORIGINS: "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - opspilot-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: opspilot-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - opspilot-net
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  opspilot-net:
+    driver: bridge
+
