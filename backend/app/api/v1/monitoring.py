@@ -89,3 +89,4 @@ def get_grafana_configuration(current_user: User = Depends(get_current_user)):
             {"id": "loki-logs", "name": "Centralized Workload Logs", "uid": "loki-logs"},
         ],
     )
+

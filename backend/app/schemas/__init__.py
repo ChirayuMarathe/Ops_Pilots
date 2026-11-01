@@ -50,6 +50,16 @@ from app.schemas.observability import (
     LokiStatusResponse,
     GrafanaConfigResponse,
 )
+from app.schemas.terraform import (
+    WorkspaceBase,
+    WorkspaceCreate,
+    WorkspaceUpdate,
+    WorkspaceResponse,
+    TerraformActionResponse,
+    TerraformPlanResponse,
+    TerraformRunItem,
+    TerraformStateResource,
+)
 
 __all__ = [
     "Token",
@@ -102,5 +112,13 @@ __all__ = [
     "LokiQueryResponse",
     "LokiStatusResponse",
     "GrafanaConfigResponse",
+    "WorkspaceBase",
+    "WorkspaceCreate",
+    "WorkspaceUpdate",
+    "WorkspaceResponse",
+    "TerraformActionResponse",
+    "TerraformPlanResponse",
+    "TerraformRunItem",
+    "TerraformStateResource",
 ]
 

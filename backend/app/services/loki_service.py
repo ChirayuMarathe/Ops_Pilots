@@ -137,3 +137,4 @@ class LokiService:
                 return []
         except Exception:
             return []
+

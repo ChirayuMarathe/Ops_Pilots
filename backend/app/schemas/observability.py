@@ -71,3 +71,4 @@ class GrafanaConfigResponse(BaseModel):
     is_connected: bool
     url: str
     dashboards: List[Dict[str, str]] = []
+

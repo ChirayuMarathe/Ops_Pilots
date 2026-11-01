@@ -43,7 +43,7 @@ export const Sidebar = () => {
       items: [
         { label: 'Containers (Docker)', to: '/infrastructure/containers', icon: Box },
         { label: 'Kubernetes Workloads', to: '/infrastructure/kubernetes', icon: Layers },
-        { label: 'Terraform (IaC)', to: '/infrastructure/terraform', icon: Binary, badge: 'Phase 6' },
+        { label: 'Terraform (IaC)', to: '/infrastructure/terraform', icon: Binary },
       ],
     },
     {

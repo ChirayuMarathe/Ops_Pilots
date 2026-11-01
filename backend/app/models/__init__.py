@@ -195,3 +195,43 @@ class AuditLog(Base):
 
     user = relationship("User", back_populates="audit_logs")
 
+
+class TerraformWorkspace(Base):
+    __tablename__ = "terraform_workspaces"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    name = Column(String(100), index=True, nullable=False)
+    slug = Column(String(120), unique=True, index=True, nullable=False)
+    description = Column(Text, nullable=True)
+    owner_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    status = Column(String(50), default="uninitialized", nullable=False)  # uninitialized, initialized, planned, applied, failed
+    main_tf = Column(Text, nullable=False)
+    variables_tf = Column(Text, nullable=True)
+    last_plan_output = Column(Text, nullable=True)
+    resources_to_add = Column(Integer, default=0)
+    resources_to_change = Column(Integer, default=0)
+    resources_to_destroy = Column(Integer, default=0)
+    requires_approval = Column(Boolean, default=True)
+    is_approved = Column(Boolean, default=False)
+    approved_by = Column(String(100), nullable=True)
+    created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now, nullable=False)
+
+    runs = relationship("TerraformRun", back_populates="workspace", cascade="all, delete-orphan")
+
+
+class TerraformRun(Base):
+    __tablename__ = "terraform_runs"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    workspace_id = Column(String(36), ForeignKey("terraform_workspaces.id", ondelete="CASCADE"), nullable=False)
+    action = Column(String(50), nullable=False)  # init, validate, plan, apply, destroy
+    status = Column(String(50), default="running")  # running, success, failure
+    exit_code = Column(Integer, nullable=True)
+    output_log = Column(Text, nullable=True)
+    initiated_by = Column(String(100), nullable=True)
+    duration_seconds = Column(Integer, default=0)
+    created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
+
+    workspace = relationship("TerraformWorkspace", back_populates="runs")
+

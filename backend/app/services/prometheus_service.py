@@ -169,3 +169,4 @@ class PrometheusService:
             "p95_latency_ms": get_val(lat_res, 28.5),
             "container_restarts": 0,
         }
+

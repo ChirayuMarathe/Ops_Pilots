@@ -79,3 +79,4 @@ def test_loki_logs_query_endpoint(client):
     data = resp.json()
     assert "is_connected" in data
     assert "logs" in data
+

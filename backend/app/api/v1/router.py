@@ -10,6 +10,7 @@ from app.api.v1.docker import router as docker_router
 from app.api.v1.kubernetes import router as kubernetes_router
 from app.api.v1.monitoring import router as monitoring_router
 from app.api.v1.logs import router as logs_router
+from app.api.v1.terraform import router as terraform_router
 
 api_router = APIRouter()
 
@@ -23,4 +24,5 @@ api_router.include_router(docker_router, prefix="/docker", tags=["Docker"])
 api_router.include_router(kubernetes_router, prefix="/kubernetes", tags=["Kubernetes"])
 api_router.include_router(monitoring_router, prefix="/monitoring", tags=["Monitoring"])
 api_router.include_router(logs_router, prefix="/logs", tags=["Logs"])
+api_router.include_router(terraform_router, prefix="/terraform", tags=["Terraform"])
 

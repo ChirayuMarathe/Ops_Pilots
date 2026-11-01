@@ -14,6 +14,7 @@ import { Kubernetes } from './pages/Kubernetes';
 import { Metrics } from './pages/Metrics';
 import { Logs } from './pages/Logs';
 import { Dashboards } from './pages/Dashboards';
+import { Terraform } from './pages/Terraform';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -80,16 +81,7 @@ export default function App() {
             <Route path="infrastructure/kubernetes" element={<Kubernetes />} />
 
             {/* Phase 6: Terraform */}
-            <Route
-              path="infrastructure/terraform"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 6 Deliverable"
-                  title="Infrastructure as Code (Terraform)"
-                  description="Isolated plan inspection, validation runs, and approval-gated cloud provisioning."
-                />
-              }
-            />
+            <Route path="infrastructure/terraform" element={<Terraform />} />
 
             {/* Phase 5: Observability */}
             <Route path="observability/metrics" element={<Metrics />} />

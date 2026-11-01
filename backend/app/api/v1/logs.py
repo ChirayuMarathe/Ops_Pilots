@@ -33,3 +33,4 @@ async def query_loki_logs(
 @router.get("/services", response_model=List[str])
 async def list_log_services(current_user: User = Depends(get_current_user)):
     return await LokiService.list_services()
+
