@@ -73,3 +73,4 @@ class IncidentSummary(BaseModel):
     high_count: int
     mean_time_to_resolve_minutes: float
     recent_incidents: List[IncidentResponse]
+

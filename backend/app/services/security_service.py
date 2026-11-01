@@ -186,3 +186,4 @@ class SecurityService:
                 counts[s] += 1
 
         return "completed", findings, counts
+

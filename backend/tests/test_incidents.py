@@ -82,3 +82,4 @@ def test_alert_rule_evaluation_and_auto_incident(client):
     eval_data = eval_resp.json()
     assert "is_breached" in eval_data
     assert "metric_value" in eval_data
+

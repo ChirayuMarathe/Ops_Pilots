@@ -718,3 +718,4 @@ export const Incidents = () => {
     </div>
   );
 };
+

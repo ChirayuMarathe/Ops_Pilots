@@ -70,3 +70,4 @@ def test_trivy_vulnerability_scanner(client):
     scans_list_resp = client.get("/api/v1/security/scans", headers=headers)
     assert scans_list_resp.status_code == 200
     assert len(scans_list_resp.json()) >= 1
+
