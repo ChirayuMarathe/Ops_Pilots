@@ -15,6 +15,8 @@ import { Metrics } from './pages/Metrics';
 import { Logs } from './pages/Logs';
 import { Dashboards } from './pages/Dashboards';
 import { Terraform } from './pages/Terraform';
+import { Incidents } from './pages/Incidents';
+import { Security } from './pages/Security';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -88,27 +90,9 @@ export default function App() {
             <Route path="observability/dashboards" element={<Dashboards />} />
             <Route path="observability/logs" element={<Logs />} />
 
-            {/* Phase 8: Incidents & Security */}
-            <Route
-              path="incidents"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 8 Deliverable"
-                  title="Incident & Alert Management"
-                  description="Automated incident detection from telemetry thresholds with correlated root cause evidence."
-                />
-              }
-            />
-            <Route
-              path="security"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 8 Deliverable"
-                  title="Security & Vulnerability Auditing"
-                  description="Trivy container scanning, least-privilege RBAC controls, and non-repudiation audit trails."
-                />
-              }
-            />
+            {/* Phase 7 & 8: Incidents & Security */}
+            <Route path="incidents" element={<Incidents />} />
+            <Route path="security" element={<Security />} />
           </Route>
 
           {/* Catch-all redirect */}

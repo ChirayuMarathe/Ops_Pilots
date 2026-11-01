@@ -375,3 +375,4 @@ def get_workspace_state(
     db: Session = Depends(get_db),
 ):
     return TerraformService.get_state_resources(id)
+

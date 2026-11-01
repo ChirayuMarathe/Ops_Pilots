@@ -166,6 +166,9 @@ class Incident(Base):
     description = Column(Text, nullable=True)
     root_cause = Column(Text, nullable=True)
     resolution_notes = Column(Text, nullable=True)
+    assigned_to = Column(String(100), nullable=True)
+    evidence_metrics = Column(Text, nullable=True)
+    evidence_logs = Column(Text, nullable=True)
 
 
 class Alert(Base):
@@ -194,6 +197,35 @@ class AuditLog(Base):
     created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
 
     user = relationship("User", back_populates="audit_logs")
+
+
+class SecretItem(Base):
+    __tablename__ = "secrets"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    name = Column(String(100), nullable=False)
+    key = Column(String(100), nullable=False)
+    value = Column(Text, nullable=False)
+    environment = Column(String(50), default="production", nullable=False)  # production, staging, development
+    description = Column(String(255), nullable=True)
+    provider = Column(String(50), default="local", nullable=False)  # local, aws_secrets_manager
+    created_by = Column(String(100), nullable=True)
+    created_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
+    updated_at = Column(DateTime(timezone=True), default=utc_now, onupdate=utc_now, nullable=False)
+
+
+class VulnerabilityScan(Base):
+    __tablename__ = "vulnerability_scans"
+
+    id = Column(String(36), primary_key=True, default=generate_uuid, index=True)
+    image_name = Column(String(255), nullable=False)
+    status = Column(String(50), default="completed", nullable=False)  # completed, failed, scanning
+    critical_count = Column(Integer, default=0, nullable=False)
+    high_count = Column(Integer, default=0, nullable=False)
+    medium_count = Column(Integer, default=0, nullable=False)
+    low_count = Column(Integer, default=0, nullable=False)
+    findings_json = Column(Text, nullable=True)
+    scanned_at = Column(DateTime(timezone=True), default=utc_now, nullable=False)
 
 
 class TerraformWorkspace(Base):

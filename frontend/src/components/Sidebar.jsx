@@ -57,8 +57,8 @@ export const Sidebar = () => {
     {
       title: 'Security & Operations',
       items: [
-        { label: 'Incidents', to: '/incidents', icon: Flame, badge: 'Phase 8' },
-        { label: 'Security & Trivy', to: '/security', icon: ShieldCheck, badge: 'Phase 8' },
+        { label: 'Incidents', to: '/incidents', icon: Flame },
+        { label: 'Security & Trivy', to: '/security', icon: ShieldCheck },
       ],
     },
   ];

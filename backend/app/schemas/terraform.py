@@ -79,3 +79,4 @@ class TerraformStateResource(BaseModel):
     address: str
     resource_type: str
     name: str
+

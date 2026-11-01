@@ -60,6 +60,26 @@ from app.schemas.terraform import (
     TerraformRunItem,
     TerraformStateResource,
 )
+from app.schemas.incident import (
+    IncidentBase,
+    IncidentCreate,
+    IncidentUpdate,
+    IncidentResponse,
+    AlertBase,
+    AlertCreate,
+    AlertResponse,
+    AlertEvaluationResult,
+    IncidentSummary,
+)
+from app.schemas.security import (
+    SecretCreate,
+    SecretResponse,
+    SecretRevealResponse,
+    VulnerabilityItem,
+    ScanTriggerRequest,
+    ScanResponse,
+    AuditLogItem,
+)
 
 __all__ = [
     "Token",
@@ -120,5 +140,21 @@ __all__ = [
     "TerraformPlanResponse",
     "TerraformRunItem",
     "TerraformStateResource",
+    "IncidentBase",
+    "IncidentCreate",
+    "IncidentUpdate",
+    "IncidentResponse",
+    "AlertBase",
+    "AlertCreate",
+    "AlertResponse",
+    "AlertEvaluationResult",
+    "IncidentSummary",
+    "SecretCreate",
+    "SecretResponse",
+    "SecretRevealResponse",
+    "VulnerabilityItem",
+    "ScanTriggerRequest",
+    "ScanResponse",
+    "AuditLogItem",
 ]
 

@@ -118,3 +118,4 @@ def test_terraform_lifecycle_plan_approve_apply(mock_run, client):
     assert "apply" in actions
     assert "plan" in actions
     assert "init" in actions
+
