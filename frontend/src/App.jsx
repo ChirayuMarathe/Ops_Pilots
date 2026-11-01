@@ -11,6 +11,9 @@ import { PipelineDetail } from './pages/PipelineDetail';
 import { Integrations } from './pages/Integrations';
 import { Containers } from './pages/Containers';
 import { Kubernetes } from './pages/Kubernetes';
+import { Metrics } from './pages/Metrics';
+import { Logs } from './pages/Logs';
+import { Dashboards } from './pages/Dashboards';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -89,36 +92,9 @@ export default function App() {
             />
 
             {/* Phase 5: Observability */}
-            <Route
-              path="observability/metrics"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 5 Deliverable"
-                  title="Prometheus Metrics Explorer"
-                  description="Real-time PromQL query execution for request rates, error rates, and CPU/memory utilization."
-                />
-              }
-            />
-            <Route
-              path="observability/dashboards"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 5 Deliverable"
-                  title="Grafana Observability Dashboards"
-                  description="Unified infrastructure and application telemetry dashboards."
-                />
-              }
-            />
-            <Route
-              path="observability/logs"
-              element={
-                <PhasePlaceholder
-                  phase="Phase 5 Deliverable"
-                  title="Loki Centralized Log Aggregation"
-                  description="High-performance LogQL streaming across microservice workloads."
-                />
-              }
-            />
+            <Route path="observability/metrics" element={<Metrics />} />
+            <Route path="observability/dashboards" element={<Dashboards />} />
+            <Route path="observability/logs" element={<Logs />} />
 
             {/* Phase 8: Incidents & Security */}
             <Route

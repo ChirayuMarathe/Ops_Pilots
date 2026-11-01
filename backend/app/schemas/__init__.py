@@ -38,6 +38,19 @@ from app.schemas.kubernetes import (
     PodLogsResponse,
 )
 
+from app.schemas.observability import (
+    MetricSeriesPoint,
+    MetricSeries,
+    PrometheusQueryResult,
+    PrometheusQueryRequest,
+    PrometheusQueryRangeRequest,
+    ObservabilityOverviewResponse,
+    LokiLogItem,
+    LokiQueryResponse,
+    LokiStatusResponse,
+    GrafanaConfigResponse,
+)
+
 __all__ = [
     "Token",
     "TokenPayload",
@@ -79,5 +92,15 @@ __all__ = [
     "ServiceItem",
     "K8sEventItem",
     "PodLogsResponse",
+    "MetricSeriesPoint",
+    "MetricSeries",
+    "PrometheusQueryResult",
+    "PrometheusQueryRequest",
+    "PrometheusQueryRangeRequest",
+    "ObservabilityOverviewResponse",
+    "LokiLogItem",
+    "LokiQueryResponse",
+    "LokiStatusResponse",
+    "GrafanaConfigResponse",
 ]
 

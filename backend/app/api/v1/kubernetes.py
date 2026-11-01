@@ -125,3 +125,4 @@ def list_kubernetes_events(
     current_user: User = Depends(get_current_user),
 ):
     return KubernetesService.list_events(namespace=namespace)
+

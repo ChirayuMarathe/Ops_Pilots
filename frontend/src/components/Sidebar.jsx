@@ -49,9 +49,9 @@ export const Sidebar = () => {
     {
       title: 'Observability',
       items: [
-        { label: 'Metrics (Prometheus)', to: '/observability/metrics', icon: BarChart2, badge: 'Phase 5' },
-        { label: 'Dashboards (Grafana)', to: '/observability/dashboards', icon: LineChart, badge: 'Phase 5' },
-        { label: 'Central Logs (Loki)', to: '/observability/logs', icon: FileText, badge: 'Phase 5' },
+        { label: 'Metrics (Prometheus)', to: '/observability/metrics', icon: BarChart2 },
+        { label: 'Dashboards (Grafana)', to: '/observability/dashboards', icon: LineChart },
+        { label: 'Central Logs (Loki)', to: '/observability/logs', icon: FileText },
       ],
     },
     {
@@ -103,8 +103,8 @@ export const Sidebar = () => {
 
       <div className="pt-4 border-t border-border/60">
         <div className="px-3 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
-          <div className="font-semibold text-slate-300">Phase 4: Active</div>
-          <div className="text-[11px] text-slate-400 mt-0.5">Kubernetes Cluster & Workload Orchestration</div>
+          <div className="font-semibold text-slate-300">Phase 5: Active</div>
+          <div className="text-[11px] text-slate-400 mt-0.5">Observability (Prometheus, Grafana, Loki)</div>
         </div>
       </div>
     </aside>

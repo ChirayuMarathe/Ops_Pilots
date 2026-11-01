@@ -79,3 +79,4 @@ class PodLogsResponse(BaseModel):
     container: Optional[str] = None
     tail_lines: int
     logs: str
+

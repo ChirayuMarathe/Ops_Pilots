@@ -83,3 +83,4 @@ def test_kubernetes_deployment_scale_and_restart(client):
         )
         assert restart_resp.status_code == 200
         assert restart_resp.json()["action"] == "rolling_restart"
+
