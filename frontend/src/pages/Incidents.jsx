@@ -483,7 +483,7 @@ export const Incidents = () => {
                   </div>
 
                   {parsedMetrics && (
-                    <div className="p-3 rounded-lg bg-[#0d121f] border border-border/60 space-y-2 mb-3">
+                    <div className="p-3 rounded-lg bg-[#222831] border border-border/60 space-y-2 mb-3">
                       <p className="text-[11px] font-semibold text-slate-300">Prometheus Telemetry Anomaly:</p>
                       <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                         {Object.entries(parsedMetrics).map(([k, v]) => (
@@ -497,7 +497,7 @@ export const Incidents = () => {
                   )}
 
                   {parsedLogs && parsedLogs.length > 0 && (
-                    <div className="p-3 rounded-lg bg-[#090d16] border border-border/60 space-y-2">
+                    <div className="p-3 rounded-lg bg-[#222831] border border-border/60 space-y-2">
                       <p className="text-[11px] font-semibold text-slate-300">Correlated Loki Log Stream:</p>
                       <div className="space-y-1.5 max-h-40 overflow-y-auto">
                         {parsedLogs.map((log, idx) => (
@@ -520,7 +520,7 @@ export const Incidents = () => {
                       onChange={(e) => setNotesDraft({ ...notesDraft, root_cause: e.target.value })}
                       rows={3}
                       placeholder="Identified root cause (e.g. Memory leak in v1.2 worker)"
-                      className="w-full p-2.5 bg-[#090d16] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-red-500 font-sans"
+                      className="w-full p-2.5 bg-[#222831] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-red-500 font-sans"
                     />
                   </div>
 
@@ -531,7 +531,7 @@ export const Incidents = () => {
                       onChange={(e) => setNotesDraft({ ...notesDraft, resolution_notes: e.target.value })}
                       rows={3}
                       placeholder="Steps taken to mitigate and prevent future occurrence"
-                      className="w-full p-2.5 bg-[#090d16] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-red-500 font-sans"
+                      className="w-full p-2.5 bg-[#222831] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-red-500 font-sans"
                     />
                   </div>
 
@@ -630,7 +630,7 @@ export const Incidents = () => {
       {/* Declare Incident Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
-          <div className="w-full max-w-lg bg-[#0e1424] border border-border rounded-2xl p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-lg bg-[#393E46] border border-border rounded-2xl p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-border/60 pb-3">
               <h3 className="text-base font-bold text-white flex items-center space-x-2">
                 <Flame className="w-4 h-4 text-red-500" />
@@ -653,7 +653,7 @@ export const Incidents = () => {
                   value={newIncidentData.title}
                   onChange={(e) => setNewIncidentData({ ...newIncidentData, title: e.target.value })}
                   placeholder="e.g. Payment Gateway Error Rate Spike"
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-red-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-red-500"
                 />
               </div>
 
@@ -666,7 +666,7 @@ export const Incidents = () => {
                     value={newIncidentData.service_name}
                     onChange={(e) => setNewIncidentData({ ...newIncidentData, service_name: e.target.value })}
                     placeholder="e.g. payment-service"
-                    className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-red-500"
+                    className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-red-500"
                   />
                 </div>
                 <div>
@@ -674,7 +674,7 @@ export const Incidents = () => {
                   <select
                     value={newIncidentData.severity}
                     onChange={(e) => setNewIncidentData({ ...newIncidentData, severity: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-red-500"
+                    className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-red-500"
                   >
                     <option value="critical">CRITICAL (P1)</option>
                     <option value="high">HIGH (P2)</option>
@@ -691,7 +691,7 @@ export const Incidents = () => {
                   onChange={(e) => setNewIncidentData({ ...newIncidentData, description: e.target.value })}
                   rows={4}
                   placeholder="Describe observed anomaly, user impact, and immediate symptoms"
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-red-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-red-500"
                 />
               </div>
 

@@ -367,7 +367,7 @@ export const Security = () => {
                     value={targetImage}
                     onChange={(e) => setTargetImage(e.target.value)}
                     placeholder="e.g. opspilot-backend:latest"
-                    className="flex-1 px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
+                    className="flex-1 px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
                   />
                   <button
                     disabled={actionLoading}
@@ -390,7 +390,7 @@ export const Security = () => {
                     setTargetImage(img);
                     handleTriggerScan(img);
                   }}
-                  className="px-2.5 py-1 rounded bg-[#090d16] border border-border text-slate-300 hover:text-white font-mono text-[11px] transition"
+                  className="px-2.5 py-1 rounded bg-[#222831] border border-border text-slate-300 hover:text-white font-mono text-[11px] transition"
                 >
                   {img}
                 </button>
@@ -527,7 +527,7 @@ export const Security = () => {
                 value={auditSearch}
                 onChange={(e) => setAuditSearch(e.target.value)}
                 placeholder="Search audit trail by actor, action, or keyword..."
-                className="w-full pl-9 pr-3 py-1.5 bg-[#090d16] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-blue-500"
+                className="w-full pl-9 pr-3 py-1.5 bg-[#222831] border border-border rounded-lg text-xs text-white focus:outline-none focus:border-blue-500"
               />
             </div>
             <span className="text-xs text-slate-400 font-mono">Non-Repudiation Audit Logs</span>
@@ -573,7 +573,7 @@ export const Security = () => {
       {/* Add Secret Modal */}
       {showAddSecretModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
-          <div className="w-full max-w-lg bg-[#0e1424] border border-border rounded-2xl p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-lg bg-[#393E46] border border-border rounded-2xl p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-border/60 pb-3">
               <h3 className="text-base font-bold text-white flex items-center space-x-2">
                 <Lock className="w-4 h-4 text-blue-400" />
@@ -596,7 +596,7 @@ export const Security = () => {
                   value={newSecretData.name}
                   onChange={(e) => setNewSecretData({ ...newSecretData, name: e.target.value })}
                   placeholder="e.g. Stripe Production API Key"
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -614,7 +614,7 @@ export const Security = () => {
                       })
                     }
                     placeholder="e.g. STRIPE_API_KEY"
-                    className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
+                    className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
@@ -622,7 +622,7 @@ export const Security = () => {
                   <select
                     value={newSecretData.environment}
                     onChange={(e) => setNewSecretData({ ...newSecretData, environment: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
                   >
                     <option value="production">Production</option>
                     <option value="staging">Staging</option>
@@ -639,7 +639,7 @@ export const Security = () => {
                   value={newSecretData.value}
                   onChange={(e) => setNewSecretData({ ...newSecretData, value: e.target.value })}
                   placeholder="Paste sensitive token or key"
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -648,7 +648,7 @@ export const Security = () => {
                 <select
                   value={newSecretData.provider}
                   onChange={(e) => setNewSecretData({ ...newSecretData, provider: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
                 >
                   <option value="local">Local Encrypted Database Vault</option>
                   <option value="aws_secrets_manager">AWS Secrets Manager (Cloud)</option>
@@ -662,7 +662,7 @@ export const Security = () => {
                   value={newSecretData.description}
                   onChange={(e) => setNewSecretData({ ...newSecretData, description: e.target.value })}
                   placeholder="Purpose of this credential"
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -690,7 +690,7 @@ export const Security = () => {
       {/* Reveal Confirmation Modal */}
       {showRevealModal && secretToReveal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
-          <div className="w-full max-w-md bg-[#0e1424] border border-amber-500/40 rounded-2xl p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-md bg-[#393E46] border border-amber-500/40 rounded-2xl p-6 shadow-2xl space-y-4">
             <div className="flex items-center space-x-3 text-amber-400">
               <AlertTriangle className="w-6 h-6 flex-shrink-0" />
               <h3 className="text-base font-bold text-white">Compliance Audit Warning</h3>
@@ -726,7 +726,7 @@ export const Security = () => {
       {/* Revealed Plaintext Modal */}
       {revealedSecret && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
-          <div className="w-full max-w-md bg-[#0e1424] border border-border rounded-2xl p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-md bg-[#393E46] border border-border rounded-2xl p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-border/60 pb-3">
               <h3 className="text-base font-bold text-white">Decrypted Secret Value</h3>
               <button onClick={() => setRevealedSecret(null)} className="text-slate-400 hover:text-white">
@@ -736,7 +736,7 @@ export const Security = () => {
 
             <div>
               <p className="text-xs text-slate-400 font-mono mb-1">{revealedSecret.key}</p>
-              <div className="flex items-center space-x-2 p-3 rounded-lg bg-[#090d16] border border-border">
+              <div className="flex items-center space-x-2 p-3 rounded-lg bg-[#222831] border border-border">
                 <input
                   type="text"
                   readOnly

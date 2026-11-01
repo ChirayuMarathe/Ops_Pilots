@@ -147,7 +147,7 @@ export const Containers = () => {
 
       {/* Engine Status Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Engine Daemon</span>
           <div className="mt-2 flex items-center space-x-2">
             {status?.is_available ? (
@@ -165,19 +165,19 @@ export const Containers = () => {
           <p className="text-[11px] text-slate-400 mt-2">{status?.operating_system || 'Local OS Runtime'}</p>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Running Workloads</span>
           <div className="text-2xl font-bold text-white mt-1">{status?.containers_running ?? 0}</div>
           <p className="text-[11px] text-slate-400 mt-1">Active container instances</p>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Stopped Containers</span>
           <div className="text-2xl font-bold text-slate-400 mt-1">{status?.containers_stopped ?? 0}</div>
           <p className="text-[11px] text-slate-400 mt-1">Exited / terminated</p>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Local Images</span>
           <div className="text-2xl font-bold text-cyan-400 mt-1">{status?.images_total ?? images.length}</div>
           <p className="text-[11px] text-slate-400 mt-1">Available in local registry</p>
@@ -216,14 +216,14 @@ export const Containers = () => {
             placeholder={activeTab === 'containers' ? 'Filter containers...' : 'Filter images...'}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-3.5 py-2 rounded-lg bg-[#0e1424] border border-border/80 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-9 pr-3.5 py-2 rounded-lg bg-[#393E46] border border-border/80 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>
 
       {/* Containers Tab View */}
       {activeTab === 'containers' && (
-        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#0e1424]">
+        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#393E46]">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-slate-900/60 text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -327,7 +327,7 @@ export const Containers = () => {
 
       {/* Images Tab View */}
       {activeTab === 'images' && (
-        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#0e1424]">
+        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#393E46]">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-slate-900/60 text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -366,7 +366,7 @@ export const Containers = () => {
       {/* Live Logs Modal */}
       {showLogsModal && activeContainer && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0e1424] border border-border/80 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
+          <div className="bg-[#393E46] border border-border/80 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
             <div className="p-4 border-b border-border/80 flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <Terminal className="w-5 h-5 text-blue-400" />
@@ -403,7 +403,7 @@ export const Containers = () => {
       {/* Inspect & Metrics Modal */}
       {showInspectModal && activeContainer && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0e1424] border border-border/80 w-full max-w-2xl rounded-2xl shadow-2xl p-6 relative max-h-[85vh] overflow-y-auto space-y-5">
+          <div className="bg-[#393E46] border border-border/80 w-full max-w-2xl rounded-2xl shadow-2xl p-6 relative max-h-[85vh] overflow-y-auto space-y-5">
             <button
               onClick={() => setShowInspectModal(false)}
               className="absolute top-5 right-5 text-slate-400 hover:text-white"

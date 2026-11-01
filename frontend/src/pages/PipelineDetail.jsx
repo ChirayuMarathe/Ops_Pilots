@@ -16,6 +16,7 @@ import {
   Layers,
   Terminal,
   Activity,
+  Check,
 } from 'lucide-react';
 
 export const PipelineDetail = () => {
@@ -150,7 +151,7 @@ export const PipelineDetail = () => {
       {loading ? (
         <div className="py-16 text-center text-slate-400 font-mono text-sm">Loading execution telemetry...</div>
       ) : runs.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-[#0e1424] border border-border/80">
+        <div className="p-12 text-center rounded-2xl bg-[#393E46] border border-border/80">
           <Clock className="w-10 h-10 mx-auto text-slate-500 mb-2" />
           <h3 className="text-base font-semibold text-white">No execution runs yet</h3>
           <p className="text-xs text-slate-400 mt-1">Trigger this pipeline or push a commit to start a workflow execution.</p>
@@ -168,7 +169,7 @@ export const PipelineDetail = () => {
                   className={`w-full text-left p-3.5 rounded-xl border transition ${
                     selectedRun?.id === run.id
                       ? 'bg-blue-600/10 border-blue-500/40'
-                      : 'bg-[#0e1424] border-border/70 hover:border-slate-700'
+                      : 'bg-[#393E46] border-border/70 hover:border-slate-700'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
@@ -186,7 +187,7 @@ export const PipelineDetail = () => {
 
           {/* Right Column: Stages Pipeline Visualizer */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="p-6 rounded-2xl bg-[#0e1424] border border-border/80 shadow-xl space-y-6">
+            <div className="p-6 rounded-2xl bg-[#393E46] border border-border/80 shadow-xl space-y-6">
               <div className="flex items-center justify-between pb-4 border-b border-border/60">
                 <div>
                   <h2 className="text-lg font-bold text-white">
@@ -259,7 +260,7 @@ export const PipelineDetail = () => {
                             stage.steps.map((step, sIdx) => (
                               <div key={sIdx} className="flex items-center justify-between py-1 border-b border-border/20 last:border-0">
                                 <div className="flex items-center space-x-2">
-                                  <span className="text-emerald-400">✓</span>
+                                  <Check className="w-3.5 h-3.5 text-emerald-400" />
                                   <span>{step.name}</span>
                                 </div>
                                 <span className="text-[10px] text-slate-400 capitalize">{step.conclusion || step.status}</span>

@@ -90,7 +90,7 @@ export const Integrations = () => {
       </div>
 
       {/* GitHub Integration Card */}
-      <div className="p-6 rounded-2xl bg-[#0e1424] border border-border/80 shadow-xl space-y-6">
+      <div className="p-6 rounded-2xl bg-[#393E46] border border-border/80 shadow-xl space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border/60">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-white">

@@ -23,7 +23,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#090d16] flex items-center justify-center text-slate-400 font-mono text-sm">
+      <div className="min-h-screen bg-[#222831] flex items-center justify-center text-[#948979] font-mono text-sm">
         Initializing OpsPilot Session...
       </div>
     );
@@ -38,7 +38,7 @@ const ProtectedRoute = ({ children }) => {
 
 // Placeholder component for upcoming phases
 const PhasePlaceholder = ({ phase, title, description }) => (
-  <div className="p-12 text-center rounded-2xl bg-[#0e1424] border border-border/80 max-w-2xl mx-auto mt-12">
+  <div className="p-12 text-center rounded-2xl bg-[#393E46] border border-border/80 max-w-2xl mx-auto mt-12">
     <div className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs mb-4">
       {phase}
     </div>

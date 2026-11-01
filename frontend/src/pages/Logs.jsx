@@ -127,7 +127,7 @@ export const Logs = () => {
       </div>
 
       {/* Query Bar and Filters */}
-      <div className="p-5 rounded-2xl bg-[#0e1424] border border-border/80 space-y-4 shadow-xl">
+      <div className="p-5 rounded-2xl bg-[#393E46] border border-border/80 space-y-4 shadow-xl">
         <form onSubmit={handleSearch} className="flex flex-col md:flex-row md:items-center gap-3">
           <div className="relative flex-1">
             <Search className="w-4 h-4 absolute left-3 top-3 text-slate-500" />
@@ -194,7 +194,7 @@ export const Logs = () => {
 
       {/* Terminal Logs Viewer */}
       <div className="rounded-2xl border border-border/80 bg-black shadow-2xl overflow-hidden flex flex-col min-h-[500px]">
-        <div className="px-4 py-3 bg-[#0d121f] border-b border-border/80 flex items-center justify-between text-xs">
+        <div className="px-4 py-3 bg-[#222831] border-b border-border/80 flex items-center justify-between text-xs">
           <div className="flex items-center space-x-2 text-slate-400 font-mono">
             <Terminal className="w-4 h-4 text-blue-400" />
             <span>Loki Log Stream ({logs.length} entries)</span>

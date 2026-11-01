@@ -3,43 +3,36 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
   FolderGit2,
-  GitBranch,
   PlayCircle,
-  History,
-  Server,
-  Cpu,
-  Layers,
   Box,
+  Layers,
   Binary,
   BarChart2,
   LineChart,
   FileText,
-  AlertTriangle,
   Flame,
   ShieldCheck,
-  KeyRound,
-  FileCheck2,
   Settings,
 } from 'lucide-react';
 
 export const Sidebar = () => {
   const navSections = [
     {
-      title: 'Core',
+      title: 'Platform Core',
       items: [
         { label: 'Overview', to: '/', icon: LayoutDashboard },
         { label: 'Projects', to: '/projects', icon: FolderGit2 },
       ],
     },
     {
-      title: 'CI/CD Pipelines',
+      title: 'Continuous Delivery',
       items: [
         { label: 'Pipelines', to: '/pipelines', icon: PlayCircle },
         { label: 'Integrations', to: '/integrations', icon: Settings },
       ],
     },
     {
-      title: 'Infrastructure',
+      title: 'Infrastructure & Workloads',
       items: [
         { label: 'Containers (Docker)', to: '/infrastructure/containers', icon: Box },
         { label: 'Kubernetes Workloads', to: '/infrastructure/kubernetes', icon: Layers },
@@ -47,7 +40,7 @@ export const Sidebar = () => {
       ],
     },
     {
-      title: 'Observability',
+      title: 'Telemetry & Logs',
       items: [
         { label: 'Metrics (Prometheus)', to: '/observability/metrics', icon: BarChart2 },
         { label: 'Dashboards (Grafana)', to: '/observability/dashboards', icon: LineChart },
@@ -57,18 +50,18 @@ export const Sidebar = () => {
     {
       title: 'Security & Operations',
       items: [
-        { label: 'Incidents', to: '/incidents', icon: Flame },
+        { label: 'Incidents War Room', to: '/incidents', icon: Flame },
         { label: 'Security & Trivy', to: '/security', icon: ShieldCheck },
       ],
     },
   ];
 
   return (
-    <aside className="w-64 border-r border-border bg-[#0a0f1d] min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4">
+    <aside className="w-64 border-r border-[rgba(148,137,121,0.2)] bg-[#222831] min-h-[calc(100vh-4rem)] flex flex-col justify-between p-4 select-none">
       <div className="space-y-6">
         {navSections.map((section, idx) => (
           <div key={idx} className="space-y-1">
-            <h3 className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2">
+            <h3 className="text-[10px] font-semibold text-[#948979] uppercase tracking-wider px-3 mb-2 font-mono">
               {section.title}
             </h3>
             {section.items.map((item, itemIdx) => {
@@ -78,10 +71,10 @@ export const Sidebar = () => {
                   key={itemIdx}
                   to={item.to}
                   className={({ isActive }) =>
-                    `flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition ${
+                    `flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition ${
                       isActive
-                        ? 'bg-blue-600/15 text-blue-400 border border-blue-500/20'
-                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                        ? 'bg-[#393E46] text-[#DFD0B8] border border-[rgba(148,137,121,0.35)] shadow-subtle'
+                        : 'text-[#948979] hover:text-[#DFD0B8] hover:bg-[#393E46]/50'
                     }`
                   }
                 >
@@ -89,11 +82,6 @@ export const Sidebar = () => {
                     <Icon className="w-4 h-4 flex-shrink-0" />
                     <span>{item.label}</span>
                   </div>
-                  {item.badge && (
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-400">
-                      {item.badge}
-                    </span>
-                  )}
                 </NavLink>
               );
             })}
@@ -101,13 +89,17 @@ export const Sidebar = () => {
         ))}
       </div>
 
-      <div className="pt-4 border-t border-border/60">
-        <div className="px-3 py-2 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
-          <div className="font-semibold text-slate-300">Phase 5: Active</div>
-          <div className="text-[11px] text-slate-400 mt-0.5">Observability (Prometheus, Grafana, Loki)</div>
+      <div className="pt-4 border-t border-[rgba(148,137,121,0.18)]">
+        <div className="px-3 py-2.5 rounded-lg bg-[#393E46]/60 border border-[rgba(148,137,121,0.2)] text-xs text-[#948979]">
+          <div className="font-semibold text-[#DFD0B8] flex items-center justify-between">
+            <span>OpsPilot Core</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <div className="text-[10px] text-[#948979] mt-0.5 font-mono">
+            Environment: Production
+          </div>
         </div>
       </div>
     </aside>
   );
 };
-

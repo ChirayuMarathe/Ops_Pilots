@@ -106,7 +106,7 @@ export const Metrics = () => {
       {/* SRE 4 Golden Signals Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Signal 1: CPU */}
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <div className="flex items-center justify-between text-slate-400 text-xs font-semibold uppercase">
             <span>CPU Saturation</span>
             <Cpu className="w-4 h-4 text-blue-400" />
@@ -118,7 +118,7 @@ export const Metrics = () => {
         </div>
 
         {/* Signal 2: Memory */}
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <div className="flex items-center justify-between text-slate-400 text-xs font-semibold uppercase">
             <span>Memory Saturation</span>
             <HardDrive className="w-4 h-4 text-purple-400" />
@@ -130,7 +130,7 @@ export const Metrics = () => {
         </div>
 
         {/* Signal 3: Traffic */}
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <div className="flex items-center justify-between text-slate-400 text-xs font-semibold uppercase">
             <span>Traffic (RPS)</span>
             <Zap className="w-4 h-4 text-emerald-400" />
@@ -142,7 +142,7 @@ export const Metrics = () => {
         </div>
 
         {/* Signal 4: Errors */}
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <div className="flex items-center justify-between text-slate-400 text-xs font-semibold uppercase">
             <span>Error Rate (5xx)</span>
             <AlertTriangle className="w-4 h-4 text-rose-400" />
@@ -154,7 +154,7 @@ export const Metrics = () => {
         </div>
 
         {/* Signal 5: Latency */}
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <div className="flex items-center justify-between text-slate-400 text-xs font-semibold uppercase">
             <span>p95 Latency</span>
             <Clock className="w-4 h-4 text-amber-400" />
@@ -167,7 +167,7 @@ export const Metrics = () => {
       </div>
 
       {/* PromQL Query Console */}
-      <div className="p-6 rounded-2xl bg-[#0e1424] border border-border/80 space-y-5 shadow-xl">
+      <div className="p-6 rounded-2xl bg-[#393E46] border border-border/80 space-y-5 shadow-xl">
         <div className="flex items-center justify-between border-b border-border/60 pb-3">
           <h2 className="text-base font-bold text-white flex items-center space-x-2">
             <Activity className="w-4 h-4 text-blue-400" />

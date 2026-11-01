@@ -151,7 +151,7 @@ export const Pipelines = () => {
       {loading ? (
         <div className="py-16 text-center text-slate-400 font-mono text-sm">Loading pipelines...</div>
       ) : pipelines.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-[#0e1424] border border-border/80">
+        <div className="p-12 text-center rounded-2xl bg-[#393E46] border border-border/80">
           <PlayCircle className="w-12 h-12 mx-auto text-slate-400 mb-3" />
           <h3 className="text-lg font-semibold text-white">No CI/CD pipelines defined yet</h3>
           <p className="text-sm text-slate-400 max-w-md mx-auto mt-1 mb-6">
@@ -171,7 +171,7 @@ export const Pipelines = () => {
             return (
               <div
                 key={pipe.id}
-                className="p-5 rounded-xl bg-[#0e1424] border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-slate-700 transition"
+                className="p-5 rounded-xl bg-[#393E46] border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-slate-700 transition"
               >
                 <div className="space-y-2">
                   <div className="flex items-center space-x-3">
@@ -223,7 +223,7 @@ export const Pipelines = () => {
       {/* Register Pipeline Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0e1424] border border-border/80 w-full max-w-lg rounded-2xl p-6 shadow-2xl relative">
+          <div className="bg-[#393E46] border border-border/80 w-full max-w-lg rounded-2xl p-6 shadow-2xl relative">
             <button
               onClick={() => setShowCreateModal(false)}
               className="absolute top-5 right-5 text-slate-400 hover:text-white"
@@ -328,7 +328,7 @@ export const Pipelines = () => {
       {/* Trigger Modal */}
       {showTriggerModal && selectedPipeline && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0e1424] border border-border/80 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
+          <div className="bg-[#393E46] border border-border/80 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
             <button
               onClick={() => setShowTriggerModal(false)}
               className="absolute top-5 right-5 text-slate-400 hover:text-white"

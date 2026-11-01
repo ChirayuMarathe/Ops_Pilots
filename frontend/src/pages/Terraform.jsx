@@ -568,8 +568,8 @@ export const Terraform = () => {
             {/* Tab 1: Editor */}
             {activeTab === 'editor' && (
               <div className="space-y-4">
-                <div className="rounded-xl border border-border bg-[#0d121f] overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-[#090d16] border-b border-border/60 text-xs text-slate-400">
+                <div className="rounded-xl border border-border bg-[#222831] overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-[#222831] border-b border-border/60 text-xs text-slate-400">
                     <span className="font-mono">main.tf</span>
                     <button
                       disabled={isSavingCode}
@@ -624,8 +624,8 @@ export const Terraform = () => {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-border bg-[#0d121f] overflow-hidden">
-                  <div className="px-4 py-2.5 bg-[#090d16] border-b border-border/60 text-xs font-mono text-slate-400">
+                <div className="rounded-xl border border-border bg-[#222831] overflow-hidden">
+                  <div className="px-4 py-2.5 bg-[#222831] border-b border-border/60 text-xs font-mono text-slate-400">
                     Latest Terraform Plan Diff
                   </div>
                   <pre className="p-4 text-xs font-mono text-slate-300 overflow-x-auto whitespace-pre-wrap max-h-96">
@@ -637,8 +637,8 @@ export const Terraform = () => {
 
             {/* Tab 3: Logs */}
             {activeTab === 'logs' && (
-              <div className="rounded-xl border border-border bg-[#090d16] overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-2.5 bg-[#0e1424] border-b border-border/60 text-xs font-mono text-slate-400">
+              <div className="rounded-xl border border-border bg-[#222831] overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-[#393E46] border-b border-border/60 text-xs font-mono text-slate-400">
                   <div className="flex items-center space-x-2">
                     <Terminal className="w-3.5 h-3.5 text-blue-400" />
                     <span>Terraform CLI Terminal Output</span>
@@ -740,7 +740,7 @@ export const Terraform = () => {
             )}
           </div>
         ) : (
-          <div className="lg:col-span-3 p-12 text-center rounded-2xl bg-[#0e1424] border border-border/80">
+          <div className="lg:col-span-3 p-12 text-center rounded-2xl bg-[#393E46] border border-border/80">
             <Binary className="w-12 h-12 text-slate-600 mx-auto mb-3" />
             <h3 className="text-base font-bold text-white mb-1">No Workspace Selected</h3>
             <p className="text-xs text-slate-400 max-w-sm mx-auto mb-4">
@@ -753,7 +753,7 @@ export const Terraform = () => {
       {/* Create Workspace Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
-          <div className="w-full max-w-2xl bg-[#0e1424] border border-border rounded-2xl p-6 shadow-2xl space-y-5">
+          <div className="w-full max-w-2xl bg-[#393E46] border border-border rounded-2xl p-6 shadow-2xl space-y-5">
             <div className="flex items-center justify-between border-b border-border/60 pb-4">
               <div>
                 <h3 className="text-lg font-bold text-white">Create Terraform Workspace</h3>
@@ -780,7 +780,7 @@ export const Terraform = () => {
                     key={idx}
                     type="button"
                     onClick={() => applyTemplate(tpl)}
-                    className="p-2.5 rounded-lg border border-border/70 bg-[#090d16] hover:border-blue-500/40 text-left transition"
+                    className="p-2.5 rounded-lg border border-border/70 bg-[#222831] hover:border-blue-500/40 text-left transition"
                   >
                     <p className="font-semibold text-xs text-white">{tpl.name}</p>
                     <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-2">{tpl.description}</p>
@@ -805,7 +805,7 @@ export const Terraform = () => {
                       })
                     }
                     placeholder="e.g. Production Network"
-                    className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <div>
@@ -816,7 +816,7 @@ export const Terraform = () => {
                     value={newWsData.slug}
                     onChange={(e) => setNewWsData({ ...newWsData, slug: e.target.value })}
                     placeholder="e.g. prod-network"
-                    className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
+                    className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white font-mono focus:outline-none focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -828,7 +828,7 @@ export const Terraform = () => {
                   value={newWsData.description}
                   onChange={(e) => setNewWsData({ ...newWsData, description: e.target.value })}
                   placeholder="Target cloud or infrastructure purpose"
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-sm text-white focus:outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -838,12 +838,12 @@ export const Terraform = () => {
                   value={newWsData.main_tf}
                   onChange={(e) => setNewWsData({ ...newWsData, main_tf: e.target.value })}
                   rows={8}
-                  className="w-full px-3 py-2 bg-[#090d16] border border-border rounded-lg text-xs font-mono text-slate-200 focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 bg-[#222831] border border-border rounded-lg text-xs font-mono text-slate-200 focus:outline-none focus:border-blue-500"
                   spellCheck={false}
                 />
               </div>
 
-              <div className="flex items-center space-x-3 p-3 rounded-lg bg-[#090d16] border border-border/80">
+              <div className="flex items-center space-x-3 p-3 rounded-lg bg-[#222831] border border-border/80">
                 <input
                   type="checkbox"
                   id="requires_approval"

@@ -98,7 +98,7 @@ export const Dashboards = () => {
 
       {/* Datasource Verification Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80 flex items-center justify-between">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80 flex items-center justify-between">
           <div>
             <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Prometheus Store</div>
             <div className="text-sm font-bold text-white mt-1 font-mono">{obsStatus?.prometheus?.url || 'http://localhost:9090'}</div>
@@ -108,7 +108,7 @@ export const Dashboards = () => {
           </span>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80 flex items-center justify-between">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80 flex items-center justify-between">
           <div>
             <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Loki Log Daemon</div>
             <div className="text-sm font-bold text-white mt-1 font-mono">{obsStatus?.loki?.url || 'http://localhost:3100'}</div>
@@ -118,7 +118,7 @@ export const Dashboards = () => {
           </span>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80 flex items-center justify-between">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80 flex items-center justify-between">
           <div>
             <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Grafana Instance</div>
             <div className="text-sm font-bold text-white mt-1 font-mono">{obsStatus?.grafana?.url || 'http://localhost:3001'}</div>
@@ -137,7 +137,7 @@ export const Dashboards = () => {
           return (
             <div
               key={dash.uid}
-              className="p-6 rounded-2xl bg-[#0e1424] border border-border/80 hover:border-slate-700 transition flex flex-col justify-between space-y-4 shadow-xl"
+              className="p-6 rounded-2xl bg-[#393E46] border border-border/80 hover:border-slate-700 transition flex flex-col justify-between space-y-4 shadow-xl"
             >
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">

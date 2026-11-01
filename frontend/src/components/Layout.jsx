@@ -5,7 +5,7 @@ import { Sidebar } from './Sidebar';
 
 export const Layout = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#090d16] text-slate-100">
+    <div className="min-h-screen flex flex-col bg-[#222831] text-[#f3f0ea]">
       <Navbar />
       <div className="flex-1 flex">
         <Sidebar />
@@ -16,4 +16,3 @@ export const Layout = () => {
     </div>
   );
 };
-

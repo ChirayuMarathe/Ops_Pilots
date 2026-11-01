@@ -206,7 +206,7 @@ export const Kubernetes = () => {
 
       {/* Cluster Overview Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Cluster Context</span>
           <div className="text-base font-bold text-white mt-1 truncate">
             {clusterInfo?.cluster_name || 'local-cluster'}
@@ -225,19 +225,19 @@ export const Kubernetes = () => {
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Cluster Nodes</span>
           <div className="text-2xl font-bold text-white mt-1">{clusterInfo?.node_count ?? 0}</div>
           <p className="text-[11px] text-slate-400 mt-1">Control plane & worker nodes</p>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active Deployments</span>
           <div className="text-2xl font-bold text-cyan-400 mt-1">{deployments.length}</div>
           <p className="text-[11px] text-slate-400 mt-1">Managed workload controllers</p>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0e1424] border border-border/80">
+        <div className="p-4 rounded-xl bg-[#393E46] border border-border/80">
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Pods</span>
           <div className="text-2xl font-bold text-purple-400 mt-1">{pods.length}</div>
           <p className="text-[11px] text-slate-400 mt-1">Running application instances</p>
@@ -275,14 +275,14 @@ export const Kubernetes = () => {
             placeholder="Filter resources..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-3.5 py-1.5 rounded-lg bg-[#0e1424] border border-border/80 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-9 pr-3.5 py-1.5 rounded-lg bg-[#393E46] border border-border/80 text-white placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>
 
       {/* Deployments Tab */}
       {activeTab === 'deployments' && (
-        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#0e1424]">
+        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#393E46]">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-slate-900/60 text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -347,7 +347,7 @@ export const Kubernetes = () => {
 
       {/* Pods Tab */}
       {activeTab === 'pods' && (
-        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#0e1424]">
+        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#393E46]">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-slate-900/60 text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -413,7 +413,7 @@ export const Kubernetes = () => {
 
       {/* Services Tab */}
       {activeTab === 'services' && (
-        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#0e1424]">
+        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#393E46]">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-slate-900/60 text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -449,7 +449,7 @@ export const Kubernetes = () => {
 
       {/* Events Tab */}
       {activeTab === 'events' && (
-        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#0e1424]">
+        <div className="overflow-x-auto rounded-xl border border-border/80 bg-[#393E46]">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-slate-900/60 text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -499,7 +499,7 @@ export const Kubernetes = () => {
       {activeTab === 'nodes' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {clusterInfo?.nodes?.map((node) => (
-            <div key={node.name} className="p-5 rounded-xl bg-[#0e1424] border border-border/80 space-y-3">
+            <div key={node.name} className="p-5 rounded-xl bg-[#393E46] border border-border/80 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="font-semibold text-white text-base">{node.name}</div>
                 <span
@@ -527,7 +527,7 @@ export const Kubernetes = () => {
       {/* Scale Replicas Modal */}
       {showScaleModal && selectedDeployment && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0e1424] border border-border/80 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
+          <div className="bg-[#393E46] border border-border/80 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
             <button
               onClick={() => setShowScaleModal(false)}
               className="absolute top-5 right-5 text-slate-400 hover:text-white"
@@ -584,7 +584,7 @@ export const Kubernetes = () => {
       {/* Pod Logs Modal */}
       {showLogsModal && selectedPod && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-[#0e1424] border border-border/80 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
+          <div className="bg-[#393E46] border border-border/80 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
             <div className="p-4 border-b border-border/80 flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <Terminal className="w-5 h-5 text-blue-400" />
