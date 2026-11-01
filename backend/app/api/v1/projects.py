@@ -1,3 +1,4 @@
+import re
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -27,20 +28,25 @@ def create_project(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
+    # Auto-generate slug if missing or blank
+    slug = (project_in.slug or "").strip().lower()
+    if not slug:
+        slug = re.sub(r"[^a-z0-9]+", "-", project_in.name.lower()).strip("-") or "project"
+
     # Check slug uniqueness
-    existing = db.query(Project).filter(Project.slug == project_in.slug).first()
+    existing = db.query(Project).filter(Project.slug == slug).first()
     if existing:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"A project with slug '{project_in.slug}' already exists."
+            detail=f"A project with slug '{slug}' already exists."
         )
 
     project = Project(
         name=project_in.name,
-        slug=project_in.slug,
+        slug=slug,
         description=project_in.description,
         repository_url=project_in.repository_url,
-        default_branch=project_in.default_branch,
+        default_branch=project_in.default_branch or "main",
         owner_id=current_user.id,
         status="active"
     )

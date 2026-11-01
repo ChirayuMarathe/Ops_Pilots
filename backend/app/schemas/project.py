@@ -5,7 +5,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 class ProjectBase(BaseModel):
     name: str = Field(min_length=1, max_length=100)
-    slug: str = Field(min_length=1, max_length=120)
+    slug: Optional[str] = Field(default=None, max_length=120)
     description: Optional[str] = None
     repository_url: Optional[str] = None
     default_branch: str = "main"

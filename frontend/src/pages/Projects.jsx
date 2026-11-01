@@ -21,6 +21,7 @@ export const Projects = () => {
   // Form states
   const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
+  const [slugManuallyEdited, setSlugManuallyEdited] = useState(false);
   const [description, setDescription] = useState('');
   const [repositoryUrl, setRepositoryUrl] = useState('');
   const [defaultBranch, setDefaultBranch] = useState('main');
@@ -48,17 +49,22 @@ export const Projects = () => {
     setFormError('');
     setSubmitting(true);
 
+    const effectiveSlug =
+      (slug.trim() || name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')) ||
+      'project';
+
     try {
       await api.post('/projects', {
-        name,
-        slug,
-        description,
-        repository_url: repositoryUrl,
-        default_branch: defaultBranch,
+        name: name.trim(),
+        slug: effectiveSlug,
+        description: description.trim() || null,
+        repository_url: repositoryUrl.trim() || null,
+        default_branch: defaultBranch.trim() || 'main',
       });
       setShowModal(false);
       setName('');
       setSlug('');
+      setSlugManuallyEdited(false);
       setDescription('');
       setRepositoryUrl('');
       fetchProjects();
@@ -233,9 +239,15 @@ export const Projects = () => {
                   placeholder="e.g. Payment Gateway Service"
                   value={name}
                   onChange={(e) => {
-                    setName(e.target.value);
-                    if (!slug) {
-                      setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+                    const newName = e.target.value;
+                    setName(newName);
+                    if (!slugManuallyEdited) {
+                      setSlug(
+                        newName
+                          .toLowerCase()
+                          .replace(/[^a-z0-9]+/g, '-')
+                          .replace(/^-+|-+$/g, '')
+                      );
                     }
                   }}
                   className="w-full px-3.5 py-2 rounded-lg bg-[#393E46] border border-[rgba(148,137,121,0.25)] text-white placeholder-[#948979] text-xs focus:outline-none focus:border-[#DFD0B8]"
@@ -243,15 +255,20 @@ export const Projects = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Project Slug (URL Identifier)
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                    Project Slug (URL Identifier)
+                  </label>
+                  <span className="text-[10px] text-[#948979] font-mono">Auto-generated</span>
+                </div>
                 <input
                   type="text"
-                  required
                   placeholder="e.g. payment-gateway"
                   value={slug}
-                  onChange={(e) => setSlug(e.target.value)}
+                  onChange={(e) => {
+                    setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ''));
+                    setSlugManuallyEdited(true);
+                  }}
                   className="w-full px-3.5 py-2 rounded-lg bg-[#393E46] border border-[rgba(148,137,121,0.25)] text-white placeholder-[#948979] text-xs font-mono focus:outline-none focus:border-[#DFD0B8]"
                 />
               </div>
